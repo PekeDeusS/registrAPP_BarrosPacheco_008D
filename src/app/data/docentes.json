@@ -1,0 +1,41 @@
+{
+    "docentes":[
+        {
+            "id": 1,
+            "usuario": "peke",
+            "contraseña": "peke",
+            "asignatura1": "lenguaje",
+            "asignatura2": "matematica"
+        },
+        {
+            "id": 2,
+            "usuario": "peke1",
+            "contraseña": "peke1",
+            "asignatura1": "tecnologia",
+            "asignatura2": "biologia"
+        },
+        {
+            "id": 3,
+            "usuario": "peke2",
+            "contraseña": "peke2",
+            "asignatura1": "fisica",
+            "asignatura2": "artes"
+        }
+    ],
+    "usuarios":[
+        {
+            "id":1,
+            "username":"cristo1302",
+            "password":"cristobkn1",
+            "role":"maestro",
+            "isactive":true
+        },
+        {
+            "id":2,
+            "username":"fishman1302",
+            "password":"cristobkn1",
+            "role":"maestro",
+            "isactive":true
+        }
+    ]
+}

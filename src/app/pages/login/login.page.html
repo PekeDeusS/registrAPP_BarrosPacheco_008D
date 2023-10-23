@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="tertiary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title size="large">Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+<form [formGroup]="loginForm">
+  <ion-content [fullscreen]="true" class="ion-text-center">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Inicio de Sesión</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list class="ion-padding">
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="stacked">Usuario</ion-label>
+        <ion-input type="text" placeholder="Ingresa tu usuario"  formControlName="username"></ion-input>
+      </ion-item>
+
+      <div *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || 
+                loginForm.get('username')?.touched)">
+      <div style="color:rgb(255, 0, 255)" *ngIf="loginForm.get('username')?.hasError('required')">
+        Usuario es obligatorio
+      </div>
+      <div style="color:rgb(255, 0, 212)" *ngIf="loginForm.get('username')?.hasError('minlength')">
+        Usuario debe tener mínimo 4 caracteres
+      </div>
+    </div>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" placeholder="Ingresa tu contraseña" formControlName="password"></ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || 
+                loginForm.get('password')?.touched)">
+      <div style="color:red" *ngIf="loginForm.get('password')?.hasError('required')">
+        Contraseña  es obligatoria
+      </div>
+      <div style="color:red" *ngIf="loginForm.get('password')?.hasError('minlength')">
+        La contraseña debe tener mínimo 4 caracteres
+      </div>
+    </div>
+    </ion-list>
+
+    <ion-segment  class="ion-margin-top">
+      <ion-segment-button value="docente" class="custom-segment-button" formControlName="role">
+        Maestro
+      </ion-segment-button>
+      <ion-segment-button value="alumno" class="custom-segment-button">
+        Alumno
+      </ion-segment-button>
+    </ion-segment>
+    
+    <ion-button expand="full" color="tertiary" (click)="login()" class="ion-text-center" class="custom-button" [disabled]="!loginForm.valid">Iniciar Sesión</ion-button>
+  </ion-content>
+</form>
